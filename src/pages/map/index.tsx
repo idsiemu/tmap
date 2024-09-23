@@ -31,7 +31,8 @@ function MapScreen() {
 
   const fetchWalkLoad = async (requestData: IRequestPath) => {
     const headers = {
-      appKey: REACT_APP_TMAP_API_KEY,
+      // REACT_APP_TMAP_API_KEY
+      appKey: "Z97RUN4aEB5Vim1sBdP7p3HhTachpyfZ3knXV6hk",
     };
     try {
       const response = await axios.post(
