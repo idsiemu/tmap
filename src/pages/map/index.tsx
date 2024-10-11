@@ -149,6 +149,7 @@ function MapScreen() {
 
   useEffect(() => {
     window.fetchWalkLoad = fetchWalkLoad;
+    window.walkLoad = walkLoad;
     window.handleChangeCenter = handleChangeCenter;
   }, []);
 
@@ -169,7 +170,7 @@ function MapScreen() {
       //   endName: "도착지",
       // });
     }
-  }, [map, window.fetchWalkLoad, window.handleChangeCenter]);
+  }, [map, window.walkLoad, window.fetchWalkLoad, window.handleChangeCenter]);
 
   return (
     <>
