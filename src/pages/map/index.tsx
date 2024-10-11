@@ -84,12 +84,17 @@ function MapScreen() {
                 geometry.coordinates[j][0],
                 geometry.coordinates[j][1]
             );
-            // const convertPoint =
-            //     new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+            const convertPoint =
+                new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
             const convertChange = new Tmapv2.LatLng(
+                convertPoint._lat,
+                convertPoint._lng
+            );
+            console.log("convertChange", convertChange)
+            console.log("----", new Tmapv2.LatLng(
                 geometry.coordinates[j][0],
                 geometry.coordinates[j][1]
-            );
+            ))
             tempDrawInfoArr.push(convertChange);
           }
         }
