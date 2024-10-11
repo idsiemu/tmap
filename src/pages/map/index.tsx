@@ -21,6 +21,8 @@ export interface ICenter {
   lng: number;
 }
 
+const appKey = 'Z97RUN4aEB5Vim1sBdP7p3HhTachpyfZ3knXV6hk'
+
 function MapScreen() {
   const mapElement = useRef<HTMLDivElement>(null);
   const [load, setLoad] = useState(false);
@@ -32,7 +34,7 @@ function MapScreen() {
   const fetchWalkLoad = async (requestData: IRequestPath) => {
     const headers = {
       // REACT_APP_TMAP_API_KEY
-      appKey: "Z97RUN4aEB5Vim1sBdP7p3HhTachpyfZ3knXV6hk",
+      appKey: appKey,
     };
     try {
       const response = await axios.post(
@@ -56,6 +58,36 @@ function MapScreen() {
             const convertChange = new Tmapv2.LatLng(
               convertPoint._lat,
               convertPoint._lng
+            );
+            tempDrawInfoArr.push(convertChange);
+          }
+        }
+      }
+
+      setDrawInfoArr(tempDrawInfoArr);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const walkLoad = async (requestData: any) => {
+    try {
+      const resultData = JSON.parse(requestData)
+      const tempDrawInfoArr = [];
+
+      for (let i in resultData) {
+        const geometry = resultData[i].geometry;
+        if (geometry.type === "LineString") {
+          for (let j in geometry.coordinates) {
+            const latlng = new Tmapv2.Point(
+                geometry.coordinates[j][0],
+                geometry.coordinates[j][1]
+            );
+            const convertPoint =
+                new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+            const convertChange = new Tmapv2.LatLng(
+                convertPoint._lat,
+                convertPoint._lng
             );
             tempDrawInfoArr.push(convertChange);
           }
