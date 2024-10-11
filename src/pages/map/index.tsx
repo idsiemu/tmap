@@ -95,7 +95,10 @@ function MapScreen() {
                 geometry.coordinates[j][0],
                 geometry.coordinates[j][1]
             ))
-            tempDrawInfoArr.push(convertChange);
+            tempDrawInfoArr.push(new Tmapv2.LatLng(
+                geometry.coordinates[j][0],
+                geometry.coordinates[j][1]
+            ));
           }
         }
       }
