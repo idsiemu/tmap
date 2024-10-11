@@ -175,7 +175,7 @@ function MapScreen() {
   return (
     <>
       <button onClick={() => {
-        walkLoad(temp)
+        walkLoad(temp.features)
       }}>asdfasdf</button>
       <div ref={mapElement} style={{ width: "100%", height: "100vh" }} />
     </>
