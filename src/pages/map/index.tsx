@@ -90,11 +90,6 @@ function MapScreen() {
                 convertPoint._lat,
                 convertPoint._lng
             );
-            console.log("convertChange", convertChange)
-            console.log("----", new Tmapv2.LatLng(
-                geometry.coordinates[j][0],
-                geometry.coordinates[j][1]
-            ))
             tempDrawInfoArr.push(new Tmapv2.LatLng(
                 geometry.coordinates[j][1],
                 geometry.coordinates[j][0],
