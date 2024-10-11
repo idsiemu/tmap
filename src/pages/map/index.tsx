@@ -70,9 +70,9 @@ function MapScreen() {
     }
   };
 
-  const walkLoad = async (requestData: any) => {
+  const walkLoad = async (resultData: any) => {
     try {
-      const resultData = JSON.parse(requestData)
+      // const resultData = JSON.parse(requestData)
       const tempDrawInfoArr = [];
 
       for (let i in resultData) {
