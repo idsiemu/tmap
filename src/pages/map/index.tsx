@@ -79,14 +79,6 @@ function MapScreen() {
           resultData[0].geometry.coordinates[1],
           resultData[0].geometry.coordinates[0]
       ));
-      console.log(tempDrawInfoArr)
-      var marker = new Tmapv2.Marker({
-        position: new Tmapv2.LatLng(
-            resultData[0].geometry.coordinates[1],
-            resultData[0].geometry.coordinates[0]
-        ), //Marker의 중심좌표 설정.
-        map: map
-      });
       for (let i in resultData) {
         const geometry = resultData[i].geometry;
         if (geometry.type === "LineString") {
@@ -144,6 +136,13 @@ function MapScreen() {
         map: map,
       });
     }
+    var marker = new Tmapv2.Marker({
+        position: new Tmapv2.LatLng(
+            drawInfoArr[0]_lat,
+            drawInfoArr[0]_lng,
+        ), //Marker의 중심좌표 설정.
+        map: map
+      });
   }, [drawInfoArr]);
 
   useEffect(() => {
