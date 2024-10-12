@@ -98,6 +98,7 @@ function MapScreen() {
           }
         }
       }
+      console.log(tempDrawInfoArr)
 
       setDrawInfoArr(tempDrawInfoArr);
     } catch (e) {
