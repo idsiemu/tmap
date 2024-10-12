@@ -76,8 +76,8 @@ function MapScreen() {
       const resultData = requestData.features
       const tempDrawInfoArr = [];
       tempDrawInfoArr.push(new Tmapv2.LatLng(
-          resultData[0].geometry.coordinates[1],
-          resultData[0].geometry.coordinates[0]
+          resultData[0].geometry.coordinates[0][1],
+          resultData[0].geometry.coordinates[0][0]
       ));
       for (let i in resultData) {
         const geometry = resultData[i].geometry;
