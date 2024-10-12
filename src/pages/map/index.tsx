@@ -75,7 +75,10 @@ function MapScreen() {
       // const resultData = JSON.parse(requestData)
       const resultData = requestData.features
       const tempDrawInfoArr = [];
-      
+      tempDrawInfoArr.push(new Tmapv2.LatLng(
+          resultData[0].geometry.coordinates[0][1],
+          resultData[0].geometry.coordinates[0][0]
+      ));
       var marker = new Tmapv2.Marker({
         position: new Tmapv2.LatLng(
             resultData[0].geometry.coordinates[0][1],
@@ -87,16 +90,6 @@ function MapScreen() {
         const geometry = resultData[i].geometry;
         if (geometry.type === "LineString") {
           for (let j in geometry.coordinates) {
-            const latlng = new Tmapv2.Point(
-                geometry.coordinates[j][0],
-                geometry.coordinates[j][1]
-            );
-            const convertPoint =
-                new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
-            const convertChange = new Tmapv2.LatLng(
-                convertPoint._lat,
-                convertPoint._lng
-            );
             tempDrawInfoArr.push(new Tmapv2.LatLng(
                 geometry.coordinates[j][1],
                 geometry.coordinates[j][0],
