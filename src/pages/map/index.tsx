@@ -75,15 +75,15 @@ function MapScreen() {
       // const resultData = JSON.parse(requestData)
       const resultData = requestData.features
       const tempDrawInfoArr = [];
-      console.log(resultData[0].geometry.coordinates)
       tempDrawInfoArr.push(new Tmapv2.LatLng(
-          resultData[0].geometry.coordinates[0][1],
-          resultData[0].geometry.coordinates[0][0]
+          resultData[0].geometry.coordinates[1],
+          resultData[0].geometry.coordinates[0]
       ));
+      console.log(tempDrawInfoArr)
       var marker = new Tmapv2.Marker({
         position: new Tmapv2.LatLng(
-            resultData[0].geometry.coordinates[0][1],
-            resultData[0].geometry.coordinates[0][0]
+            resultData[0].geometry.coordinates[1],
+            resultData[0].geometry.coordinates[0]
         ), //Marker의 중심좌표 설정.
         map: map
       });
@@ -99,8 +99,6 @@ function MapScreen() {
           }
         }
       }
-      console.log(resultData[0].geometry.coordinates)
-      console.log(tempDrawInfoArr)
 
       setDrawInfoArr(tempDrawInfoArr);
     } catch (e) {
