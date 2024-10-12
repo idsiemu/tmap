@@ -44,17 +44,7 @@ function MapScreen() {
       );
       const resultData = response.data.features;
       const tempDrawInfoArr = [];
-      tempDrawInfoArr.push(new Tmapv2.LatLng(
-          resultData[0].geometry.coordinates[0][1],
-          resultData[0].geometry.coordinates[0][0]
-      ));
-      var marker = new Tmapv2.Marker({
-        position: new Tmapv2.LatLng(
-            resultData[0].geometry.coordinates[0][1],
-            resultData[0].geometry.coordinates[0][0]
-        ), //Marker의 중심좌표 설정.
-        map: map
-      });
+    
       for (let i in resultData) {
         const geometry = resultData[i].geometry;
         if (geometry.type === "LineString") {
@@ -85,11 +75,14 @@ function MapScreen() {
       // const resultData = JSON.parse(requestData)
       const resultData = requestData.features
       const tempDrawInfoArr = [];
-      tempDrawInfoArr.push(new Tmapv2.LatLng(
-          resultData[0].geometry.coordinates[0][1],
-          resultData[0].geometry.coordinates[0][0],
-      ));
-      console.log(resultData[0].geometry.coordinates)
+      
+      var marker = new Tmapv2.Marker({
+        position: new Tmapv2.LatLng(
+            resultData[0].geometry.coordinates[0][1],
+            resultData[0].geometry.coordinates[0][0]
+        ), //Marker의 중심좌표 설정.
+        map: map
+      });
       for (let i in resultData) {
         const geometry = resultData[i].geometry;
         if (geometry.type === "LineString") {
