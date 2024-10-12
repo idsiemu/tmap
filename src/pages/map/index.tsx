@@ -136,13 +136,7 @@ function MapScreen() {
         map: map,
       });
     }
-    var marker = new Tmapv2.Marker({
-        position: new Tmapv2.LatLng(
-            drawInfoArr[0]_lat,
-            drawInfoArr[0]_lng,
-        ), //Marker의 중심좌표 설정.
-        map: map
-      });
+    
   }, [drawInfoArr]);
 
   useEffect(() => {
